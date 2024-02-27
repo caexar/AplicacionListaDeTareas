@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Livewire\ListaTareas;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
+    Route::get('/tareas', ListaTareas::class)->name('tareas');
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
