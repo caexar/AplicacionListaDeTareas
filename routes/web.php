@@ -24,7 +24,7 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/tareas', ListaTareas::class)->name('tareas');
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::fallback(function () {
+        return redirect('/tareas');
+    });
 });
